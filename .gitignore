@@ -1,0 +1,16 @@
+# Ignorer systemfiler
+.DS_Store
+Thumbs.db
+
+# Ignorer editor-filer
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignorer logfiler
+*.log
+
+# Ignorer midlertidige filer
+*.tmp
+*.temp
