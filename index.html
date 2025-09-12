@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Johan's Frisørsalong</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">✂️</div>
+                <h1>Johan's Frisørsalong</h1>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#home" class="nav-link active">Hjem</a></li>
+                    <li><a href="#treatments" class="nav-link">Behandlinger</a></li>
+                    <li><a href="#booking" class="nav-link">Bestill time</a></li>
+                    <li><a href="#gallery" class="nav-link">Galleri</a></li>
+                    <li><a href="#about" class="nav-link">Om oss</a></li>
+                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hjem seksjon -->
+        <section id="home" class="section active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h2>Velkommen til Johan's Frisørsalong</h2>
+                    <p>Din lokale frisør med over 15 års erfaring. Vi tilbyr profesjonelle hårklipp, farging og styling for hele familien.</p>
+                    <div class="hero-buttons">
+                        <a href="#booking" class="btn btn-primary">Bestill time</a>
+                        <a href="#treatments" class="btn btn-secondary">Se behandlinger</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="salon-preview">
+                        <div class="salon-chair">🪑</div>
+                        <div class="salon-mirror">🪞</div>
+                        <div class="salon-tools">✂️💇‍♀️</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Behandlinger seksjon -->
+        <section id="treatments" class="section">
+            <div class="container">
+                <h2>Våre Behandlinger</h2>
+                <div class="treatments-grid">
+                    <div class="treatment-card">
+                        <div class="treatment-icon">✂️</div>
+                        <h3>Hårklipp</h3>
+                        <p>Profesjonell hårklipp for menn, kvinner og barn</p>
+                        <span class="price">Fra 400,-</span>
+                    </div>
+                    <div class="treatment-card">
+                        <div class="treatment-icon">🎨</div>
+                        <h3>Hårfarging</h3>
+                        <p>Moderne farging og highlighting</p>
+                        <span class="price">Fra 800,-</span>
+                    </div>
+                    <div class="treatment-card">
+                        <div class="treatment-icon">💆‍♀️</div>
+                        <h3>Styling</h3>
+                        <p>Bryllup, fest og spesielle anledninger</p>
+                        <span class="price">Fra 600,-</span>
+                    </div>
+                    <div class="treatment-card">
+                        <div class="treatment-icon">🧴</div>
+                        <h3>Hårbehandling</h3>
+                        <p>Kur og reparerende behandlinger</p>
+                        <span class="price">Fra 500,-</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking seksjon -->
+        <section id="booking" class="section">
+            <div class="container">
+                <h2>Bestill Time</h2>
+                <div class="booking-content">
+                    <div class="booking-info">
+                        <h3>Åpningstider</h3>
+                        <div class="hours">
+                            <p><strong>Mandag - Fredag:</strong> 09:00 - 18:00</p>
+                            <p><strong>Lørdag:</strong> 09:00 - 16:00</p>
+                            <p><strong>Søndag:</strong> Stengt</p>
+                        </div>
+                        <div class="contact-info">
+                            <h3>Kontakt oss</h3>
+                            <p>📞 <strong>Telefon:</strong> 123 45 678</p>
+                            <p>📧 <strong>E-post:</strong> post@johansfrisor.no</p>
+                            <p>📍 <strong>Adresse:</strong> Storgata 123, 0000 Oslo</p>
+                        </div>
+                    </div>
+                    <div class="booking-form">
+                        <h3>Send bestilling</h3>
+                        <form>
+                            <input type="text" placeholder="Ditt navn" required>
+                            <input type="tel" placeholder="Telefonnummer" required>
+                            <input type="email" placeholder="E-post" required>
+                            <select required>
+                                <option value="">Velg behandling</option>
+                                <option value="haircut">Hårklipp</option>
+                                <option value="coloring">Hårfarging</option>
+                                <option value="styling">Styling</option>
+                                <option value="treatment">Hårbehandling</option>
+                            </select>
+                            <input type="date" required>
+                            <input type="time" required>
+                            <textarea placeholder="Spesielle ønsker eller kommentarer"></textarea>
+                            <button type="submit" class="btn btn-primary">Send bestilling</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galleri seksjon -->
+        <section id="gallery" class="section">
+            <div class="container">
+                <h2>Galleri</h2>
+                <p>Se noen av våre tidligere arbeider</p>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">💇‍♀️</div>
+                        <p>Elegant klipp</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">💇‍♂️</div>
+                        <p>Moderne styling</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">🎨</div>
+                        <p>Kreativ farging</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">👰</div>
+                        <p>Bryllupsstyling</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">👶</div>
+                        <p>Barneklipp</p>
+                    </div>
+                    <div class="gallery-item">
+                        <div class="gallery-placeholder">💆‍♀️</div>
+                        <p>Hårbehandling</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Om oss seksjon -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2>Om Johan's Frisørsalong</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>Vår historie</h3>
+                        <p>Johan's Frisørsalong har vært en del av lokalsamfunnet i over 15 år. Med vår lidenskap for hår og styling, har vi hjulpet tusenvis av kunder å se og føle seg best ut.</p>
+                        
+                        <h3>Vårt team</h3>
+                        <p>Vårt erfarne team består av dyktige frisører som kontinuerlig oppdaterer seg på de nyeste trendene og teknikkene innen hårfrisering.</p>
+                        
+                        <h3>Våre verdier</h3>
+                        <ul>
+                            <li>Kvalitet og profesjonalitet</li>
+                            <li>Personlig service</li>
+                            <li>Ren og hyggelig atmosfære</li>
+                            <li>Konkurransedyktige priser</li>
+                        </ul>
+                    </div>
+                    <div class="about-image">
+                        <div class="salon-interior">
+                            <div class="interior-item">🪑</div>
+                            <div class="interior-item">🪞</div>
+                            <div class="interior-item">💇‍♀️</div>
+                            <div class="interior-item">✂️</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Kontakt seksjon -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Kontakt oss</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Besøk oss</h3>
+                        <div class="contact-details">
+                            <p>📍 <strong>Adresse:</strong><br>Storgata 123<br>0000 Oslo</p>
+                            <p>📞 <strong>Telefon:</strong><br>123 45 678</p>
+                            <p>📧 <strong>E-post:</strong><br>post@johansfrisor.no</p>
+                        </div>
+                        <div class="social-media">
+                            <h3>Følg oss</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-link">📘 Facebook</a>
+                                <a href="#" class="social-link">📷 Instagram</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <div class="map-icon">🗺️</div>
+                        <p>Kart over vår lokasjon</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Johan's Frisørsalong. Alle rettigheter forbeholdt.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
