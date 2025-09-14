@@ -3,225 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Johan's Frisørsalong</title>
+    <title>Johan's Kebab - Autentisk kebab i hjertet av byen</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
+    <!-- Header med navigasjon -->
+    <header class="header">
         <div class="container">
             <div class="logo">
-                <div class="logo-icon">✂️</div>
-                <h1>Johan's Frisørsalong</h1>
+                <h1>Johan's Kebab</h1>
+                <div class="logo-icon">🥙</div>
             </div>
-            <nav class="main-nav">
-                <ul>
+            <nav class="nav">
+                <ul class="nav-list">
                     <li><a href="#home" class="nav-link active">Hjem</a></li>
-                    <li><a href="#treatments" class="nav-link">Behandlinger</a></li>
-                    <li><a href="#booking" class="nav-link">Bestill time</a></li>
-                    <li><a href="#gallery" class="nav-link">Galleri</a></li>
-                    <li><a href="#about" class="nav-link">Om oss</a></li>
-                    <li><a href="#contact" class="nav-link">Kontakt</a></li>
+                    <li><a href="#bestill" class="nav-link">Bestill</a></li>
+                    <li><a href="#meny" class="nav-link">Meny</a></li>
+                    <li><a href="#info" class="nav-link">Info</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <main>
+    <!-- Hovedinnhold -->
+    <main class="main">
         <!-- Hjem seksjon -->
         <section id="home" class="section active">
             <div class="hero">
                 <div class="hero-content">
-                    <h2>Velkommen til Johan's Frisørsalong</h2>
-                    <p>Din lokale frisør med over 15 års erfaring. Vi tilbyr profesjonelle hårklipp, farging og styling for hele familien.</p>
-                    <div class="hero-buttons">
-                        <a href="#booking" class="btn btn-primary">Bestill time</a>
-                        <a href="#treatments" class="btn btn-secondary">Se behandlinger</a>
-                    </div>
+                    <h2>Autentisk kebab som smaker hjemme</h2>
+                    <p>Ferske ingredienser, tradisjonelle oppskrifter og en smak som bringer deg tilbake til Istanbul</p>
+                    <a href="#bestill" class="cta-button">Bestill nå</a>
                 </div>
                 <div class="hero-image">
-                    <div class="salon-preview">
-                        <div class="salon-chair">🪑</div>
-                        <div class="salon-mirror">🪞</div>
-                        <div class="salon-tools">✂️💇‍♀️</div>
+                    <div class="kebab-image-container">
+                        <img src="images/kebab-spit.jpg" alt="Fersk kebab på spyd" class="kebab-image">
+                        <p>Fersk shawarma på spyd</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Behandlinger seksjon -->
-        <section id="treatments" class="section">
+        <!-- Bestill seksjon -->
+        <section id="bestill" class="section">
             <div class="container">
-                <h2>Våre Behandlinger</h2>
-                <div class="treatments-grid">
-                    <div class="treatment-card">
-                        <div class="treatment-icon">✂️</div>
-                        <h3>Hårklipp</h3>
-                        <p>Profesjonell hårklipp for menn, kvinner og barn</p>
-                        <span class="price">Fra 400,-</span>
-                    </div>
-                    <div class="treatment-card">
-                        <div class="treatment-icon">🎨</div>
-                        <h3>Hårfarging</h3>
-                        <p>Moderne farging og highlighting</p>
-                        <span class="price">Fra 800,-</span>
-                    </div>
-                    <div class="treatment-card">
-                        <div class="treatment-icon">💆‍♀️</div>
-                        <h3>Styling</h3>
-                        <p>Bryllup, fest og spesielle anledninger</p>
-                        <span class="price">Fra 600,-</span>
-                    </div>
-                    <div class="treatment-card">
-                        <div class="treatment-icon">🧴</div>
-                        <h3>Hårbehandling</h3>
-                        <p>Kur og reparerende behandlinger</p>
-                        <span class="price">Fra 500,-</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Booking seksjon -->
-        <section id="booking" class="section">
-            <div class="container">
-                <h2>Bestill Time</h2>
-                <div class="booking-content">
-                    <div class="booking-info">
-                        <h3>Åpningstider</h3>
-                        <div class="hours">
-                            <p><strong>Mandag - Fredag:</strong> 09:00 - 18:00</p>
-                            <p><strong>Lørdag:</strong> 09:00 - 16:00</p>
-                            <p><strong>Søndag:</strong> Stengt</p>
-                        </div>
-                        <div class="contact-info">
-                            <h3>Kontakt oss</h3>
-                            <p>📞 <strong>Telefon:</strong> 123 45 678</p>
-                            <p>📧 <strong>E-post:</strong> post@johansfrisor.no</p>
-                            <p>📍 <strong>Adresse:</strong> Storgata 123, 0000 Oslo</p>
-                        </div>
-                    </div>
-                    <div class="booking-form">
-                        <h3>Send bestilling</h3>
-                        <form>
-                            <input type="text" placeholder="Ditt navn" required>
-                            <input type="tel" placeholder="Telefonnummer" required>
-                            <input type="email" placeholder="E-post" required>
-                            <select required>
-                                <option value="">Velg behandling</option>
-                                <option value="haircut">Hårklipp</option>
-                                <option value="coloring">Hårfarging</option>
-                                <option value="styling">Styling</option>
-                                <option value="treatment">Hårbehandling</option>
+                <h2>Bestill din kebab</h2>
+                <div class="order-form">
+                    <form id="orderForm">
+                        <div class="form-group">
+                            <label for="kebab-type">Velg kebab:</label>
+                            <select id="kebab-type" required>
+                                <option value="">Velg type...</option>
+                                <option value="kebabrull">Kebabrull - 89kr</option>
+                                <option value="kebabtallrik">Kebabtallrik - 95kr</option>
+                                <option value="kebabwrap">Kebabwrap - 79kr</option>
                             </select>
-                            <input type="date" required>
-                            <input type="time" required>
-                            <textarea placeholder="Spesielle ønsker eller kommentarer"></textarea>
-                            <button type="submit" class="btn btn-primary">Send bestilling</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Galleri seksjon -->
-        <section id="gallery" class="section">
-            <div class="container">
-                <h2>Galleri</h2>
-                <p>Se noen av våre tidligere arbeider</p>
-                <div class="gallery-grid">
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">💇‍♀️</div>
-                        <p>Elegant klipp</p>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">💇‍♂️</div>
-                        <p>Moderne styling</p>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">🎨</div>
-                        <p>Kreativ farging</p>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">👰</div>
-                        <p>Bryllupsstyling</p>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">👶</div>
-                        <p>Barneklipp</p>
-                    </div>
-                    <div class="gallery-item">
-                        <div class="gallery-placeholder">💆‍♀️</div>
-                        <p>Hårbehandling</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Om oss seksjon -->
-        <section id="about" class="section">
-            <div class="container">
-                <h2>Om Johan's Frisørsalong</h2>
-                <div class="about-content">
-                    <div class="about-text">
-                        <h3>Vår historie</h3>
-                        <p>Johan's Frisørsalong har vært en del av lokalsamfunnet i over 15 år. Med vår lidenskap for hår og styling, har vi hjulpet tusenvis av kunder å se og føle seg best ut.</p>
-                        
-                        <h3>Vårt team</h3>
-                        <p>Vårt erfarne team består av dyktige frisører som kontinuerlig oppdaterer seg på de nyeste trendene og teknikkene innen hårfrisering.</p>
-                        
-                        <h3>Våre verdier</h3>
-                        <ul>
-                            <li>Kvalitet og profesjonalitet</li>
-                            <li>Personlig service</li>
-                            <li>Ren og hyggelig atmosfære</li>
-                            <li>Konkurransedyktige priser</li>
-                        </ul>
-                    </div>
-                    <div class="about-image">
-                        <div class="salon-interior">
-                            <div class="interior-item">🪑</div>
-                            <div class="interior-item">🪞</div>
-                            <div class="interior-item">💇‍♀️</div>
-                            <div class="interior-item">✂️</div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Kontakt seksjon -->
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>Kontakt oss</h2>
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>Besøk oss</h3>
-                        <div class="contact-details">
-                            <p>📍 <strong>Adresse:</strong><br>Storgata 123<br>0000 Oslo</p>
-                            <p>📞 <strong>Telefon:</strong><br>123 45 678</p>
-                            <p>📧 <strong>E-post:</strong><br>post@johansfrisor.no</p>
+                        <div class="form-group">
+                            <label for="size">Størrelse:</label>
+                            <select id="size" required>
+                                <option value="normal">Normal</option>
+                                <option value="stor">Stor (+15kr)</option>
+                            </select>
                         </div>
-                        <div class="social-media">
-                            <h3>Følg oss</h3>
-                            <div class="social-links">
-                                <a href="#" class="social-link">📘 Facebook</a>
-                                <a href="#" class="social-link">📷 Instagram</a>
+                        <div class="form-group">
+                            <label for="extras">Tillegg:</label>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" value="ost"> Ekstra ost (+10kr)</label>
+                                <label><input type="checkbox" value="dressing"> Ekstra dressing (+5kr)</label>
+                                <label><input type="checkbox" value="chili"> Chili (+0kr)</label>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label for="name">Navn:</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Telefon:</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Adresse:</label>
+                            <input type="text" id="address" required>
+                        </div>
+                        <button type="submit" class="order-button">Bestill og betal</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meny seksjon -->
+        <section id="meny" class="section">
+            <div class="container">
+                <h2>Vår meny</h2>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-icon">🥙</div>
+                        <h3>Kebabrull</h3>
+                        <p>Fersk kebab i lefse med salat, tomat og dressing</p>
+                        <span class="price">89kr</span>
                     </div>
-                    <div class="map-placeholder">
-                        <div class="map-icon">🗺️</div>
-                        <p>Kart over vår lokasjon</p>
+                    <div class="menu-item">
+                        <div class="menu-icon">🍽️</div>
+                        <h3>Kebabtallrik</h3>
+                        <p>Kebab med ris, salat og brød</p>
+                        <span class="price">95kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">🌯</div>
+                        <h3>Kebabwrap</h3>
+                        <p>Kebab i tortilla med ferske grønnsaker</p>
+                        <span class="price">79kr</span>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-icon">🥤</div>
+                        <h3>Drikke</h3>
+                        <p>Cola, Fanta, Sprite, vann</p>
+                        <span class="price">25kr</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info seksjon -->
+        <section id="info" class="section">
+            <div class="container">
+                <h2>Om Johan's Kebab</h2>
+                <div class="info-content">
+                    <div class="info-text">
+                        <p>Velkommen til Johan's Kebab! Vi serverer autentisk kebab med ferske ingredienser og tradisjonelle oppskrifter som har blitt videreført gjennom generasjoner.</p>
+                        <p>Vår kebab er laget av ferskt kjøtt, ferske grønnsaker og våre hemmelige krydderblandinger som gir den perfekte smaken.</p>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Kontakt oss</h3>
+                        <div class="contact-item">
+                            <strong>Adresse:</strong>
+                            <p>Storgata 15, 0155 Oslo</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Telefon:</strong>
+                            <p>+47 123 45 678</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>Åpningstider:</strong>
+                            <p>Man-Fre: 11:00-22:00<br>
+                            Lør-Søn: 12:00-23:00</p>
+                        </div>
+                        <div class="contact-item">
+                            <strong>E-post:</strong>
+                            <p>post@johanskebab.no</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2024 Johan's Frisørsalong. Alle rettigheter forbeholdt.</p>
+            <p>&copy; 2024 Johan's Kebab. Alle rettigheter forbeholdt.</p>
         </div>
     </footer>
 
