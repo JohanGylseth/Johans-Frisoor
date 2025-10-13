@@ -351,6 +351,11 @@ main {
     font-weight: 600;
 }
 
+.booking-start-button {
+    text-align: center;
+    margin-top: 2rem;
+}
+
 /* Calendar styling */
 .calendar-container {
     background: rgba(255, 255, 255, 0.9);
@@ -375,28 +380,53 @@ main {
 
 .staff-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
     margin-bottom: 2rem;
 }
 
 .staff-member {
     background: rgba(255, 255, 255, 0.8);
-    padding: 1.5rem;
+    padding: 1rem;
     border-radius: 15px;
     text-align: center;
+}
+
+.staff-image {
+    margin-bottom: 1rem;
+}
+
+.staff-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #a68b5b;
+}
+
+.staff-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(166, 139, 91, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin: 0 auto;
+    border: 3px solid #a68b5b;
 }
 
 .staff-member h4 {
     color: #6b5b47;
     margin-bottom: 1rem;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .time-slots {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
 }
 
 .time-slot {
@@ -434,7 +464,25 @@ main {
 }
 
 .calendar-footer {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.confirmation-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 /* Booking summary */
@@ -747,11 +795,23 @@ footer p {
     }
     
     .staff-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     
     .time-slots {
         grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .calendar-footer {
+        flex-direction: column;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+    }
+    
+    .confirmation-buttons {
+        flex-direction: column;
     }
     
     .salon-preview {
@@ -801,6 +861,10 @@ footer p {
     }
     
     .time-slots {
+        grid-template-columns: 1fr;
+    }
+    
+    .staff-grid {
         grid-template-columns: 1fr;
     }
 }

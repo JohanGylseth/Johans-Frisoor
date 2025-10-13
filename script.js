@@ -189,6 +189,23 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('summary-staff').textContent = staffNames[bookingData.staff];
     }
 
+    // Tilbakeknapper
+    document.getElementById('back-to-treatment').addEventListener('click', function() {
+        showBookingStep(1);
+    });
+
+    document.getElementById('back-to-calendar').addEventListener('click', function() {
+        showBookingStep(2);
+    });
+
+    document.getElementById('back-to-home').addEventListener('click', function() {
+        // Naviger til hjem-seksjon
+        const homeLink = document.querySelector('a[href="#home"]');
+        if (homeLink) {
+            homeLink.click();
+        }
+    });
+
     // Steg 3: Final booking form
     const finalBookingForm = document.getElementById('final-booking-form');
     if (finalBookingForm) {
@@ -202,6 +219,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 email: document.getElementById('customer-email').value,
                 notes: document.getElementById('customer-notes').value
             };
+            
+            // Vis bekreftelsesmelding først
+            alert('Takk for din bestilling! Vi har sendt deg en bekreftelse på e-post.');
             
             // Gå til bekreftelse
             showBookingStep(4);
@@ -231,8 +251,18 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('confirm-staff').textContent = staffNames[bookingData.staff];
     }
 
+    // Start ny bestilling
+    document.getElementById('start-booking').addEventListener('click', function() {
+        resetBooking();
+    });
+
     // Ny bestilling
     document.getElementById('new-booking').addEventListener('click', function() {
+        resetBooking();
+    });
+
+    // Funksjon for å reset booking
+    function resetBooking() {
         // Reset booking data
         bookingData = {
             treatment: null,
@@ -252,7 +282,15 @@ document.addEventListener('DOMContentLoaded', function() {
         document.querySelectorAll('.treatment-option').forEach(option => {
             option.classList.remove('selected');
         });
-    });
+        
+        // Reset time selection
+        document.querySelectorAll('.time-slot.selected').forEach(slot => {
+            slot.classList.remove('selected');
+        });
+        
+        // Disable confirm button
+        document.getElementById('confirm-time').disabled = true;
+    }
 
     // Hjelpefunksjon for å vise booking steg
     function showBookingStep(step) {

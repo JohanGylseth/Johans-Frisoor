@@ -106,28 +106,31 @@
                         </div>
                         <div class="treatment-selection">
                             <h3>Velg behandling</h3>
-                            <div class="treatment-options">
-                                <div class="treatment-option" data-treatment="haircut">
-                                    <div class="treatment-icon">✂️</div>
-                                    <h4>Hårklipp</h4>
-                                    <p>Fra 400,-</p>
-                                </div>
-                                <div class="treatment-option" data-treatment="coloring">
-                                    <div class="treatment-icon">🎨</div>
-                                    <h4>Hårfarging</h4>
-                                    <p>Fra 800,-</p>
-                                </div>
-                                <div class="treatment-option" data-treatment="styling">
-                                    <div class="treatment-icon">💆‍♀️</div>
-                                    <h4>Styling</h4>
-                                    <p>Fra 600,-</p>
-                                </div>
-                                <div class="treatment-option" data-treatment="treatment">
-                                    <div class="treatment-icon">🧴</div>
-                                    <h4>Hårbehandling</h4>
-                                    <p>Fra 500,-</p>
-                                </div>
+                        <div class="treatment-options">
+                            <div class="treatment-option" data-treatment="haircut">
+                                <div class="treatment-icon">✂️</div>
+                                <h4>Hårklipp</h4>
+                                <p>Fra 400,-</p>
                             </div>
+                            <div class="treatment-option" data-treatment="coloring">
+                                <div class="treatment-icon">🎨</div>
+                                <h4>Hårfarging</h4>
+                                <p>Fra 800,-</p>
+                            </div>
+                            <div class="treatment-option" data-treatment="styling">
+                                <div class="treatment-icon">💆‍♀️</div>
+                                <h4>Styling</h4>
+                                <p>Fra 600,-</p>
+                            </div>
+                            <div class="treatment-option" data-treatment="treatment">
+                                <div class="treatment-icon">🧴</div>
+                                <h4>Hårbehandling</h4>
+                                <p>Fra 500,-</p>
+                            </div>
+                        </div>
+                        <div class="booking-start-button">
+                            <button id="start-booking" class="btn btn-primary">Start ny bestilling</button>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -142,23 +145,36 @@
                         </div>
                         <div class="staff-grid">
                             <div class="staff-member" data-staff="toril">
+                                <div class="staff-image">
+                                    <img src="marie-image.jpg" alt="Marie" class="staff-photo">
+                                </div>
                                 <h4>Toril</h4>
                                 <div class="time-slots" id="toril-slots"></div>
                             </div>
                             <div class="staff-member" data-staff="nora">
+                                <div class="staff-image">
+                                    <div class="staff-placeholder">👩‍🦱</div>
+                                </div>
                                 <h4>Nora</h4>
                                 <div class="time-slots" id="nora-slots"></div>
                             </div>
                             <div class="staff-member" data-staff="marie">
+                                <div class="staff-image">
+                                    <div class="staff-placeholder">👩‍🦰</div>
+                                </div>
                                 <h4>Marie</h4>
                                 <div class="time-slots" id="marie-slots"></div>
                             </div>
                             <div class="staff-member" data-staff="gudrun">
+                                <div class="staff-image">
+                                    <div class="staff-placeholder">👩‍🦳</div>
+                                </div>
                                 <h4>Gudrun</h4>
                                 <div class="time-slots" id="gudrun-slots"></div>
                             </div>
                         </div>
                         <div class="calendar-footer">
+                            <button id="back-to-treatment" class="btn btn-secondary">← Tilbake</button>
                             <button id="confirm-time" class="btn btn-primary" disabled>Bekreft valgt time</button>
                         </div>
                     </div>
@@ -183,7 +199,10 @@
                                 <input type="tel" id="customer-phone" placeholder="Telefonnummer" required>
                                 <input type="email" id="customer-email" placeholder="E-post" required>
                                 <textarea id="customer-notes" placeholder="Spesielle ønsker eller kommentarer"></textarea>
-                                <button type="submit" class="btn btn-primary">Bestill time</button>
+                                <div class="form-buttons">
+                                    <button type="button" id="back-to-calendar" class="btn btn-secondary">← Tilbake</button>
+                                    <button type="submit" class="btn btn-primary">Bestill time</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -201,7 +220,10 @@
                             <p><strong>Tid:</strong> <span id="confirm-time"></span></p>
                             <p><strong>Behandler:</strong> <span id="confirm-staff"></span></p>
                         </div>
-                        <button id="new-booking" class="btn btn-primary">Bestill ny time</button>
+                        <div class="confirmation-buttons">
+                            <button id="new-booking" class="btn btn-primary">Bestill ny time</button>
+                            <button id="back-to-home" class="btn btn-secondary">← Tilbake til hjem</button>
+                        </div>
                     </div>
                 </div>
             </div>
