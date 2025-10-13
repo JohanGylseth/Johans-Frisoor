@@ -86,39 +86,122 @@
         <section id="booking" class="section">
             <div class="container">
                 <h2>Bestill Time</h2>
-                <div class="booking-content">
-                    <div class="booking-info">
-                        <h3>Åpningstider</h3>
-                        <div class="hours">
-                            <p><strong>Mandag - Fredag:</strong> 09:00 - 18:00</p>
-                            <p><strong>Lørdag:</strong> 09:00 - 16:00</p>
-                            <p><strong>Søndag:</strong> Stengt</p>
+                
+                <!-- Steg 1: Velg behandling -->
+                <div id="booking-step-1" class="booking-step active">
+                    <div class="booking-content">
+                        <div class="booking-info">
+                            <h3>Åpningstider</h3>
+                            <div class="hours">
+                                <p><strong>Mandag - Fredag:</strong> 09:00 - 18:00</p>
+                                <p><strong>Lørdag:</strong> 09:00 - 16:00</p>
+                                <p><strong>Søndag:</strong> Stengt</p>
+                            </div>
+                            <div class="contact-info">
+                                <h3>Kontakt oss</h3>
+                                <p>📞 <strong>Telefon:</strong> 123 45 678</p>
+                                <p>📧 <strong>E-post:</strong> post@johansfrisor.no</p>
+                                <p>📍 <strong>Adresse:</strong> Storgata 123, 0000 Oslo</p>
+                            </div>
                         </div>
-                        <div class="contact-info">
-                            <h3>Kontakt oss</h3>
-                            <p>📞 <strong>Telefon:</strong> 123 45 678</p>
-                            <p>📧 <strong>E-post:</strong> post@johansfrisor.no</p>
-                            <p>📍 <strong>Adresse:</strong> Storgata 123, 0000 Oslo</p>
+                        <div class="treatment-selection">
+                            <h3>Velg behandling</h3>
+                            <div class="treatment-options">
+                                <div class="treatment-option" data-treatment="haircut">
+                                    <div class="treatment-icon">✂️</div>
+                                    <h4>Hårklipp</h4>
+                                    <p>Fra 400,-</p>
+                                </div>
+                                <div class="treatment-option" data-treatment="coloring">
+                                    <div class="treatment-icon">🎨</div>
+                                    <h4>Hårfarging</h4>
+                                    <p>Fra 800,-</p>
+                                </div>
+                                <div class="treatment-option" data-treatment="styling">
+                                    <div class="treatment-icon">💆‍♀️</div>
+                                    <h4>Styling</h4>
+                                    <p>Fra 600,-</p>
+                                </div>
+                                <div class="treatment-option" data-treatment="treatment">
+                                    <div class="treatment-icon">🧴</div>
+                                    <h4>Hårbehandling</h4>
+                                    <p>Fra 500,-</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="booking-form">
-                        <h3>Send bestilling</h3>
-                        <form>
-                            <input type="text" placeholder="Ditt navn" required>
-                            <input type="tel" placeholder="Telefonnummer" required>
-                            <input type="email" placeholder="E-post" required>
-                            <select required>
-                                <option value="">Velg behandling</option>
-                                <option value="haircut">Hårklipp</option>
-                                <option value="coloring">Hårfarging</option>
-                                <option value="styling">Styling</option>
-                                <option value="treatment">Hårbehandling</option>
-                            </select>
-                            <input type="date" required>
-                            <input type="time" required>
-                            <textarea placeholder="Spesielle ønsker eller kommentarer"></textarea>
-                            <button type="submit" class="btn btn-primary">Send bestilling</button>
-                        </form>
+                </div>
+
+                <!-- Steg 2: Velg dag og behandler -->
+                <div id="booking-step-2" class="booking-step">
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button id="prev-day" class="btn btn-secondary">← Forrige dag</button>
+                            <h3 id="current-date">Velg dag</h3>
+                            <button id="next-day" class="btn btn-secondary">Neste dag →</button>
+                        </div>
+                        <div class="staff-grid">
+                            <div class="staff-member" data-staff="toril">
+                                <h4>Toril</h4>
+                                <div class="time-slots" id="toril-slots"></div>
+                            </div>
+                            <div class="staff-member" data-staff="nora">
+                                <h4>Nora</h4>
+                                <div class="time-slots" id="nora-slots"></div>
+                            </div>
+                            <div class="staff-member" data-staff="marie">
+                                <h4>Marie</h4>
+                                <div class="time-slots" id="marie-slots"></div>
+                            </div>
+                            <div class="staff-member" data-staff="gudrun">
+                                <h4>Gudrun</h4>
+                                <div class="time-slots" id="gudrun-slots"></div>
+                            </div>
+                        </div>
+                        <div class="calendar-footer">
+                            <button id="confirm-time" class="btn btn-primary" disabled>Bekreft valgt time</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Steg 3: Bekreft bestilling -->
+                <div id="booking-step-3" class="booking-step">
+                    <div class="booking-content">
+                        <div class="booking-summary">
+                            <h3>Bekreft bestilling</h3>
+                            <div class="summary-details">
+                                <p><strong>Behandling:</strong> <span id="summary-treatment"></span></p>
+                                <p><strong>Dato:</strong> <span id="summary-date"></span></p>
+                                <p><strong>Tid:</strong> <span id="summary-time"></span></p>
+                                <p><strong>Behandler:</strong> <span id="summary-staff"></span></p>
+                            </div>
+                        </div>
+                        <div class="booking-form">
+                            <h3>Dine opplysninger</h3>
+                            <form id="final-booking-form">
+                                <input type="text" id="customer-name" placeholder="Ditt navn" required>
+                                <input type="tel" id="customer-phone" placeholder="Telefonnummer" required>
+                                <input type="email" id="customer-email" placeholder="E-post" required>
+                                <textarea id="customer-notes" placeholder="Spesielle ønsker eller kommentarer"></textarea>
+                                <button type="submit" class="btn btn-primary">Bestill time</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Steg 4: Bekreftelse -->
+                <div id="booking-step-4" class="booking-step">
+                    <div class="booking-confirmation">
+                        <div class="confirmation-icon">✅</div>
+                        <h3>Bestilling bekreftet!</h3>
+                        <p>Takk for din bestilling. Vi har sendt deg en bekreftelse på e-post.</p>
+                        <div class="confirmation-details">
+                            <p><strong>Behandling:</strong> <span id="confirm-treatment"></span></p>
+                            <p><strong>Dato:</strong> <span id="confirm-date"></span></p>
+                            <p><strong>Tid:</strong> <span id="confirm-time"></span></p>
+                            <p><strong>Behandler:</strong> <span id="confirm-staff"></span></p>
+                        </div>
+                        <button id="new-booking" class="btn btn-primary">Bestill ny time</button>
                     </div>
                 </div>
             </div>

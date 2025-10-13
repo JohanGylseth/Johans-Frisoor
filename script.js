@@ -48,25 +48,218 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Booking form funksjonalitet
-    const bookingForm = document.querySelector('.booking-form form');
-    if (bookingForm) {
-        bookingForm.addEventListener('submit', function(e) {
+    // Booking system funksjonalitet
+    let bookingData = {
+        treatment: null,
+        date: null,
+        time: null,
+        staff: null,
+        customer: {}
+    };
+
+    // Steg 1: Velg behandling
+    const treatmentOptions = document.querySelectorAll('.treatment-option');
+    treatmentOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            // Fjern selected fra alle andre
+            treatmentOptions.forEach(opt => opt.classList.remove('selected'));
+            // Legg til selected på valgt
+            this.classList.add('selected');
+            
+            // Lagre valgt behandling
+            bookingData.treatment = this.dataset.treatment;
+            
+            // Gå til neste steg
+            setTimeout(() => {
+                showBookingStep(2);
+                initializeCalendar();
+            }, 500);
+        });
+    });
+
+    // Steg 2: Kalender funksjonalitet
+    let currentDate = new Date();
+    
+    function initializeCalendar() {
+        updateCalendarDisplay();
+        generateTimeSlots();
+    }
+
+    function updateCalendarDisplay() {
+        const dateElement = document.getElementById('current-date');
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric' 
+        };
+        dateElement.textContent = currentDate.toLocaleDateString('no-NO', options);
+    }
+
+    function generateTimeSlots() {
+        const staffMembers = ['toril', 'nora', 'marie', 'gudrun'];
+        const timeSlots = ['09:00', '10:30', '12:00', '13:30', '15:00', '16:30'];
+        
+        staffMembers.forEach(staff => {
+            const container = document.getElementById(`${staff}-slots`);
+            container.innerHTML = '';
+            
+            timeSlots.forEach(time => {
+                const slot = document.createElement('div');
+                slot.className = 'time-slot';
+                slot.textContent = time;
+                slot.dataset.time = time;
+                slot.dataset.staff = staff;
+                
+                // Simuler tilgjengelighet (70% sjanse for ledig)
+                const isAvailable = Math.random() > 0.3;
+                
+                if (isAvailable) {
+                    slot.classList.add('available');
+                    slot.addEventListener('click', selectTimeSlot);
+                } else {
+                    slot.classList.add('unavailable');
+                }
+                
+                container.appendChild(slot);
+            });
+        });
+    }
+
+    function selectTimeSlot() {
+        // Fjern selected fra alle andre
+        document.querySelectorAll('.time-slot.selected').forEach(slot => {
+            slot.classList.remove('selected');
+        });
+        
+        // Legg til selected på valgt
+        this.classList.add('selected');
+        
+        // Lagre valgt tid og behandler
+        bookingData.time = this.dataset.time;
+        bookingData.staff = this.dataset.staff;
+        bookingData.date = currentDate.toISOString().split('T')[0];
+        
+        // Aktiver bekreft-knapp
+        document.getElementById('confirm-time').disabled = false;
+    }
+
+    // Kalender navigasjon
+    document.getElementById('prev-day').addEventListener('click', function() {
+        currentDate.setDate(currentDate.getDate() - 1);
+        updateCalendarDisplay();
+        generateTimeSlots();
+        document.getElementById('confirm-time').disabled = true;
+    });
+
+    document.getElementById('next-day').addEventListener('click', function() {
+        currentDate.setDate(currentDate.getDate() + 1);
+        updateCalendarDisplay();
+        generateTimeSlots();
+        document.getElementById('confirm-time').disabled = true;
+    });
+
+    // Bekreft time
+    document.getElementById('confirm-time').addEventListener('click', function() {
+        if (bookingData.time && bookingData.staff) {
+            showBookingStep(3);
+            updateBookingSummary();
+        }
+    });
+
+    // Steg 3: Oppdater sammendrag
+    function updateBookingSummary() {
+        const treatmentNames = {
+            'haircut': 'Hårklipp',
+            'coloring': 'Hårfarging',
+            'styling': 'Styling',
+            'treatment': 'Hårbehandling'
+        };
+
+        const staffNames = {
+            'toril': 'Toril',
+            'nora': 'Nora',
+            'marie': 'Marie',
+            'gudrun': 'Gudrun'
+        };
+
+        document.getElementById('summary-treatment').textContent = treatmentNames[bookingData.treatment];
+        document.getElementById('summary-date').textContent = currentDate.toLocaleDateString('no-NO');
+        document.getElementById('summary-time').textContent = bookingData.time;
+        document.getElementById('summary-staff').textContent = staffNames[bookingData.staff];
+    }
+
+    // Steg 3: Final booking form
+    const finalBookingForm = document.getElementById('final-booking-form');
+    if (finalBookingForm) {
+        finalBookingForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Hent form data
-            const formData = new FormData(this);
-            const formObject = {};
-            formData.forEach((value, key) => {
-                formObject[key] = value;
-            });
+            // Lagre kundeopplysninger
+            bookingData.customer = {
+                name: document.getElementById('customer-name').value,
+                phone: document.getElementById('customer-phone').value,
+                email: document.getElementById('customer-email').value,
+                notes: document.getElementById('customer-notes').value
+            };
             
-            // Simuler sending av bestilling
-            alert('Takk for din bestilling! Vi kontakter deg snart for å bekrefte timen.');
-            
-            // Reset form
-            this.reset();
+            // Gå til bekreftelse
+            showBookingStep(4);
+            updateConfirmationDetails();
         });
+    }
+
+    // Steg 4: Oppdater bekreftelse
+    function updateConfirmationDetails() {
+        const treatmentNames = {
+            'haircut': 'Hårklipp',
+            'coloring': 'Hårfarging',
+            'styling': 'Styling',
+            'treatment': 'Hårbehandling'
+        };
+
+        const staffNames = {
+            'toril': 'Toril',
+            'nora': 'Nora',
+            'marie': 'Marie',
+            'gudrun': 'Gudrun'
+        };
+
+        document.getElementById('confirm-treatment').textContent = treatmentNames[bookingData.treatment];
+        document.getElementById('confirm-date').textContent = currentDate.toLocaleDateString('no-NO');
+        document.getElementById('confirm-time').textContent = bookingData.time;
+        document.getElementById('confirm-staff').textContent = staffNames[bookingData.staff];
+    }
+
+    // Ny bestilling
+    document.getElementById('new-booking').addEventListener('click', function() {
+        // Reset booking data
+        bookingData = {
+            treatment: null,
+            date: null,
+            time: null,
+            staff: null,
+            customer: {}
+        };
+        
+        // Reset form
+        document.getElementById('final-booking-form').reset();
+        
+        // Gå tilbake til steg 1
+        showBookingStep(1);
+        
+        // Reset treatment selection
+        document.querySelectorAll('.treatment-option').forEach(option => {
+            option.classList.remove('selected');
+        });
+    });
+
+    // Hjelpefunksjon for å vise booking steg
+    function showBookingStep(step) {
+        document.querySelectorAll('.booking-step').forEach(stepElement => {
+            stepElement.classList.remove('active');
+        });
+        document.getElementById(`booking-step-${step}`).classList.add('active');
     }
     
     // Legg til hover-effekter på treatment cards
